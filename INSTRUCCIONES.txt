@@ -1,0 +1,169 @@
+================================================================================
+INSTRUCCIONES - ¿Dónde poner cada cosa?
+================================================================================
+
+📁 ESTRUCTURA DE CARPETAS CREADAS:
+================================================================================
+
+✅ audios/
+   └── Aquí van los 9 archivos de audio de los personajes
+       - hidalgo.mp3
+       - josefa.mp3
+       - juan.mp3
+       - diaz.mp3
+       - carmen.mp3
+       - magon.mp3
+       - zapata.mp3
+       - adelita.mp3
+       - pedro.mp3
+
+✅ videos/
+   └── Aquí van los videos/animaciones de los personajes
+       - miguel-hidalgo.mp4
+       - josefa-ortiz.mp4
+       - juan-soldado.mp4
+       - porfirio-diaz.mp4
+       - carmen-obrera.mp4
+       - ricardo-magon.mp4
+       - emiliano-zapata.mp4
+       - adelita-soldadera.mp4
+       - pedro-campesino.mp4
+
+✅ imagenes/
+   └── galeria/
+       └── Aquí van las imágenes históricas para la galería
+           
+           PARCIAL 1 - Independencia:
+           - hidalgo.jpg
+           - campana-dolores.jpg
+           - josefa-ortiz.jpg
+           - morelos.jpg
+           - independencia.jpg
+           - conspiradores.jpg
+           
+           PARCIAL 2 - Porfiriato:
+           - porfirio-diaz.jpg
+           - bellas-artes.jpg
+           - ferrocarril.jpg
+           - ciudad-mexico.jpg
+           - obreros.jpg
+           - hacienda.jpg
+           
+           PARCIAL 3 - Revolución:
+           - zapata.jpg
+           - villa.jpg
+           - soldaderas.jpg
+           - madero.jpg
+           - constitucion.jpg
+           - revolucion.jpg
+
+================================================================================
+🎤 CÓMO GENERAR LOS AUDIOS
+================================================================================
+
+1. Abre el archivo "relatos_historicos.txt"
+2. Copia cada relato individualmente
+3. Usa una herramienta de texto-a-voz:
+   
+   OPCIONES GRATIS:
+   • TTSMaker: https://ttsmaker.com/
+   • Natural Readers: https://www.naturalreaders.com/
+   • Balabolka (Windows)
+   
+   OPCIONES CON MEJOR CALIDAD:
+   • Google Cloud Text-to-Speech (primeros usos gratis)
+   • Amazon Polly (capa gratuita)
+   • ElevenLabs (plan gratuito limitado)
+
+4. Configuración recomendada:
+   - Velocidad: 140-150 palabras por minuto
+   - Voz masculina para: Hidalgo, Díaz, Magón, Zapata, Pedro, Juan
+   - Voz femenina para: Josefa, Carmen, Adelita
+   - Formato: MP3
+   - Calidad: 128kbps o superior
+
+5. Guarda cada audio con el nombre correspondiente en la carpeta "audios/"
+
+================================================================================
+🎬 VIDEOS/ANIMACIONES
+================================================================================
+
+OPCIÓN 1 - Animaciones Simples:
+• Usa Canva (gratis): crea diseños animados
+• Powtoon (gratis con marca de agua)
+• Animaker (plan gratuito disponible)
+
+OPCIÓN 2 - Presentaciones Animadas:
+• PowerPoint con animaciones + exportar como video
+• Google Slides con transiciones + grabar pantalla
+
+OPCIÓN 3 - Videos de archivo:
+• Busca imágenes históricas en alta calidad
+• Usa Windows Movie Maker o Clipchamp (gratis en Windows)
+• Agrega el audio del personaje
+• Exporta como MP4
+
+Duración recomendada: 1-2 minutos (mismo que el audio)
+
+================================================================================
+🖼️ IMÁGENES PARA LA GALERÍA
+================================================================================
+
+DÓNDE BUSCAR IMÁGENES HISTÓRICAS:
+
+1. Wikipedia Commons (dominio público):
+   https://commons.wikimedia.org/
+   
+2. Biblioteca Digital Mexicana:
+   http://bdmx.mx/
+
+3. Mediateca INAH:
+   https://mediateca.inah.gob.mx/
+
+4. Library of Congress (sección México):
+   https://www.loc.gov/
+
+RECOMENDACIONES:
+• Tamaño mínimo: 800x600 píxeles
+• Formato: JPG o PNG
+• Asegúrate que sean de dominio público
+• Descarga en la mejor calidad disponible
+
+================================================================================
+⚙️ CONFIGURACIÓN ADICIONAL
+================================================================================
+
+Si ya tienes todos los archivos:
+
+1. AUDIOS: 
+   - Solo asegúrate que estén en formato MP3
+   - Los nombres DEBEN coincidir exactamente con los listados arriba
+
+2. VIDEOS:
+   - Para agregar videos a las tarjetas de personajes, necesitas editar
+     el archivo script.js y descomentar la sección de videos
+
+3. IMÁGENES DE GALERÍA:
+   - Actualiza las rutas en script.js en el objeto "galeriaImagenes"
+   - Cambia las URLs por: "imagenes/galeria/nombre-archivo.jpg"
+
+================================================================================
+🎮 PARA ABRIR EL PROGRAMA
+================================================================================
+
+1. Abre el archivo "index.html" en tu navegador
+   (Chrome, Firefox, Edge, etc.)
+
+2. ¡Listo! El programa funciona localmente sin necesidad de servidor
+
+================================================================================
+💡 TIPS FINALES
+================================================================================
+
+• Puedes empezar solo con audios y agregar videos después
+• Si no tienes tiempo para todo, prioriza los audios
+• Los emojis se verán mientras no tengas imágenes
+• Guarda tu progreso: el sistema de logros usa localStorage
+• Prueba en diferentes navegadores para verificar compatibilidad
+
+¡Mucho éxito con tu proyecto! 🎓

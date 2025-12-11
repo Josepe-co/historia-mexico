@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia de México Interactiva</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Pantalla de Inicio -->
+    <div id="home-screen" class="screen active">
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1 class="main-title">
+                    <span class="title-line">Historia de</span>
+                    <span class="title-line highlight">México</span>
+                </h1>
+                <p class="subtitle">Un viaje interactivo por la lucha, el progreso y la revolución</p>
+                <button class="btn-start" onclick="showMainMenu()">
+                    <span>Comenzar Aventura</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="hero-decoration">
+                <div class="floating-card card-1">🔥</div>
+                <div class="floating-card card-2">⚔️</div>
+                <div class="floating-card card-3">🌾</div>
+                <div class="floating-card card-4">📜</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menú Principal -->
+    <div id="main-menu" class="screen">
+        <div class="container">
+            <h2 class="screen-title">Selecciona un Periodo Histórico</h2>
+            
+            <div class="parciales-grid">
+                <!-- Parcial 1 -->
+                <div class="parcial-card" onclick="showParcial(1)">
+                    <div class="parcial-icon">🔥</div>
+                    <h3>Parcial 1</h3>
+                    <h4>Lucha Insurgente</h4>
+                    <p>Descubre el inicio de la independencia y las luchas que transformaron México</p>
+                    <ul class="topics-list">
+                        <li>• Lucha insurgente</li>
+                        <li>• Liberalismo en México</li>
+                        <li>• Invasión de Francia y Estados Unidos</li>
+                        <li>• Luchas obreras, campesinas y femeninas</li>
+                    </ul>
+                    <div class="card-footer">
+                        <span class="badge">3 Personajes</span>
+                    </div>
+                </div>
+
+                <!-- Parcial 2 -->
+                <div class="parcial-card" onclick="showParcial(2)">
+                    <div class="parcial-icon">👑</div>
+                    <h3>Parcial 2</h3>
+                    <h4>El Porfiriato</h4>
+                    <p>Explora la época de progreso y opresión bajo Porfirio Díaz</p>
+                    <ul class="topics-list">
+                        <li>• Vertientes conservadoras</li>
+                        <li>• Estado mexicano y élites</li>
+                        <li>• Valoración del porfiriato</li>
+                    </ul>
+                    <div class="card-footer">
+                        <span class="badge">3 Personajes</span>
+                    </div>
+                </div>
+
+                <!-- Parcial 3 -->
+                <div class="parcial-card" onclick="showParcial(3)">
+                    <div class="parcial-icon">⚔️</div>
+                    <h3>Parcial 3</h3>
+                    <h4>Revolución Mexicana</h4>
+                    <p>Vive la revolución que cambió México para siempre</p>
+                    <ul class="topics-list">
+                        <li>• Causas de la Revolución</li>
+                        <li>• Revolución Rusa y Primera Guerra Mundial</li>
+                        <li>• Posrevolución y cardenismo</li>
+                    </ul>
+                    <div class="card-footer">
+                        <span class="badge">3 Personajes</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="extra-options">
+                <button class="btn-secondary" onclick="showTimeline()">
+                    📅 Línea de Tiempo
+                </button>
+                <button class="btn-secondary" onclick="showQuiz()">
+                    🎯 Quiz Interactivo
+                </button>
+                <button class="btn-secondary" onclick="showTrivia()">
+                    ⚡ Trivia Rápida
+                </button>
+                <button class="btn-secondary" onclick="showMapa()">
+                    🗺️ Mapa Interactivo
+                </button>
+                <button class="btn-secondary" onclick="showFrases()">
+                    💬 Frases Célebres
+                </button>
+                <button class="btn-secondary" onclick="showLogros()">
+                    🏆 Mis Logros
+                </button>
+                <button class="btn-secondary" onclick="showRecomendaciones()">
+                    ⭐ Recomendaciones
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla de Parcial -->
+    <div id="parcial-screen" class="screen">
+        <div class="container">
+            <button class="btn-back" onclick="showMainMenu()">
+                ← Volver
+            </button>
+            
+            <div id="parcial-content">
+                <!-- Se llenará dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla de Línea de Tiempo -->
+    <div id="timeline-screen" class="screen">
+        <div class="container">
+            <button class="btn-back" onclick="showMainMenu()">
+                ← Volver
+            </button>
+            
+            <h2 class="screen-title">Línea de Tiempo</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item" data-year="1810">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>1810 - Grito de Dolores</h3>
+                        <p>Miguel Hidalgo inicia la Guerra de Independencia</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="1821">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>1821 - Consumación de la Independencia</h3>
+                        <p>México logra su independencia de España</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="1857">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>1857 - Constitución Liberal</h3>
+                        <p>Se promulga una nueva constitución progresista</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="1876">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>1876 - Inicio del Porfiriato</h3>
+                        <p>Porfirio Díaz llega al poder</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="1907">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>1907 - Huelga de Río Blanco</h3>
+                        <p>Represión brutal contra obreros textiles</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="1910">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>1910 - Inicio de la Revolución</h3>
+                        <p>Madero convoca a levantarse contra Díaz</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="1913">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>1913 - Plan de Ayala</h3>
+                        <p>Zapata exige tierra y libertad</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-year="1917">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>1917 - Constitución de 1917</h3>
+                        <p>Se promulga la constitución que rige México</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla de Trivia Rápida -->
+    <div id="trivia-screen" class="screen">
+        <div class="container">
+            <button class="btn-back" onclick="showMainMenu()">
+                ← Volver
+            </button>
+            
+            <h2 class="screen-title">⚡ Trivia Rápida</h2>
+            <p style="text-align: center; color: white; font-size: 1.1rem; margin-bottom: 3rem;">
+                ¿Verdadero o Falso? Pon a prueba tus conocimientos
+            </p>
+            
+            <div id="trivia-content" class="trivia-container">
+                <!-- Se llenará dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla de Frases Célebres -->
+    <div id="frases-screen" class="screen">
+        <div class="container">
+            <button class="btn-back" onclick="showMainMenu()">
+                ← Volver
+            </button>
+            
+            <h2 class="screen-title">💬 Frases Célebres de la Historia</h2>
+            
+            <div id="frases-grid" class="frases-grid">
+                <!-- Se llenará dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla de Mapa -->
+    <div id="mapa-screen" class="screen">
+        <div class="container">
+            <button class="btn-back" onclick="showMainMenu()">
+                ← Volver
+            </button>
+            
+            <h2 class="screen-title">🗺️ Mapa Interactivo de la Revolución</h2>
+            
+            <div class="mapa-container">
+                <div class="mapa-visual">
+                    <img src="imagenes/mapa-mexico.webp" alt="Mapa de México" class="mapa-imagen">
+                    <!-- Dolores Hidalgo, Guanajuato - Centro-norte -->
+                    <div class="mapa-punto" style="top: 35%; left: 43%;" onclick="showEventoMapa('dolores')">
+                        <div class="punto-marker">📍</div>
+                        <div class="punto-label">Dolores</div>
+                    </div>
+                    <!-- Querétaro - Centro, arriba de CDMX -->
+                    <div class="mapa-punto" style="top: 40%; left: 47%;" onclick="showEventoMapa('queretaro')">
+                        <div class="punto-marker">📍</div>
+                        <div class="punto-label">Querétaro</div>
+                    </div>
+                    <!-- Morelos - Centro-sur, debajo de CDMX -->
+                    <div class="mapa-punto" style="top: 48%; left: 48%;" onclick="showEventoMapa('morelos')">
+                        <div class="punto-marker">📍</div>
+                        <div class="punto-label">Morelos</div>
+                    </div>
+                    <!-- Chihuahua - Extremo norte -->
+                    <div class="mapa-punto" style="top: 18%; left: 35%;" onclick="showEventoMapa('chihuahua')">
+                        <div class="punto-marker">📍</div>
+                        <div class="punto-label">Chihuahua</div>
+                    </div>
+                </div>
+                <div id="mapa-info" class="mapa-info">
+                    <h3>Selecciona un punto en el mapa</h3>
+                    <p>Descubre los eventos históricos que ocurrieron en cada región de México</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla de Logros -->
+    <div id="logros-screen" class="screen">
+        <div class="container">
+            <button class="btn-back" onclick="showMainMenu()">
+                ← Volver
+            </button>
+            
+            <h2 class="screen-title">🏆 Tus Logros Históricos</h2>
+            
+            <div class="logros-stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="parciales-visitados">0</div>
+                    <div class="stat-label">Parciales Explorados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="personajes-conocidos">0</div>
+                    <div class="stat-label">Personajes Conocidos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="quizzes-completados">0</div>
+                    <div class="stat-label">Quizzes Completados</div>
+                </div>
+            </div>
+
+            <div class="logros-grid" id="logros-grid">
+                <!-- Se llenará dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla de Quiz -->
+    <div id="quiz-screen" class="screen">
+        <div class="container">
+            <button class="btn-back" onclick="showMainMenu()">
+                ← Volver
+            </button>
+            
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <h2>Quiz Interactivo</h2>
+                    <div class="score-display">
+                        <span>Puntos: <strong id="score">0</strong></span>
+                    </div>
+                </div>
+
+                <div id="quiz-content">
+                    <!-- Se llenará dinámicamente -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pantalla de Recomendaciones -->
+    <div id="recomendaciones-screen" class="screen">
+        <div class="container">
+            <button class="btn-back" onclick="showMainMenu()">
+                ← Volver al Menú
+            </button>
+            
+            <h2 class="screen-title">⭐ Recomendaciones y Calificaciones</h2>
+            
+            <div class="recomendaciones-intro">
+                <p>¿Te gustó este viaje por la historia de México? ¡Déjanos tu calificación y recomendación!</p>
+            </div>
+
+            <div class="calificacion-container">
+                <h3>Tu Calificación</h3>
+                <div class="estrellas-container" id="estrellas">
+                    <span class="estrella" data-valor="1" onclick="calificar(1)">☆</span>
+                    <span class="estrella" data-valor="2" onclick="calificar(2)">☆</span>
+                    <span class="estrella" data-valor="3" onclick="calificar(3)">☆</span>
+                    <span class="estrella" data-valor="4" onclick="calificar(4)">☆</span>
+                    <span class="estrella" data-valor="5" onclick="calificar(5)">☆</span>
+                </div>
+                <p class="calificacion-texto" id="calificacion-texto">Haz clic en las estrellas para calificar</p>
+            </div>
+
+            <div class="recomendacion-form">
+                <h3>Deja tu Recomendación</h3>
+                <textarea id="recomendacion-input" placeholder="Escribe aquí tu recomendación o comentario sobre este programa educativo..." rows="5"></textarea>
+                <button class="btn-primary" onclick="enviarRecomendacion()">Enviar Recomendación</button>
+            </div>
+
+            <div class="recomendaciones-lista" id="recomendaciones-lista">
+                <h3>Recomendaciones de Otros Estudiantes</h3>
+                <div id="lista-comentarios">
+                    <!-- Se llenará dinámicamente -->
+                </div>
+            </div>
+
+            <div class="estadisticas-calificacion">
+                <h3>Estadísticas</h3>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-numero" id="promedio-estrellas">0.0</div>
+                        <div class="stat-label">⭐ Promedio</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-numero" id="total-calificaciones">0</div>
+                        <div class="stat-label">📊 Calificaciones</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-numero" id="total-recomendaciones">0</div>
+                        <div class="stat-label">💬 Recomendaciones</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer con Copyright -->
+    <footer class="footer-copyright">
+        <p>© 2025 <strong>Jose Carlos de Leon Salazar</strong> - Todos los derechos reservados</p>
+        <p class="footer-subtitle">Programa educativo interactivo sobre la Historia de México</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
