@@ -1878,7 +1878,6 @@ function cargarRecomendaciones() {
             listaComentarios.innerHTML = '<p class="no-comentarios">Error al cargar recomendaciones</p>';
         });
 }
-}
 
 function actualizarEstadisticas(totalEstrellas, totalRecomendaciones, distribucion) {
     let promedio = 0;
