@@ -1841,13 +1841,14 @@ function cargarRecomendaciones() {
         .onSnapshot((snapshot) => {
             if (snapshot.empty) {
                 listaComentarios.innerHTML = '<p class="no-comentarios">Aún no hay recomendaciones. ¡Sé el primero en dejar la tuya!</p>';
-                actualizarEstadisticas(0, 0);
+                actualizarEstadisticas(0, 0, {1: 0, 2: 0, 3: 0, 4: 0, 5: 0});
                 return;
             }
             
             let html = '';
             let totalEstrellas = 0;
             let contador = 0;
+            let distribucion = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0};
             
             snapshot.forEach((doc) => {
                 const comentario = doc.data();
@@ -1856,6 +1857,7 @@ function cargarRecomendaciones() {
                 
                 totalEstrellas += comentario.estrellas;
                 contador++;
+                distribucion[comentario.estrellas]++;
                 
                 html += `
                     <div class="comentario-card">
@@ -1870,14 +1872,15 @@ function cargarRecomendaciones() {
             });
             
             listaComentarios.innerHTML = html;
-            actualizarEstadisticas(totalEstrellas, contador);
+            actualizarEstadisticas(totalEstrellas, contador, distribucion);
         }, (error) => {
             console.error('Error al cargar recomendaciones:', error);
             listaComentarios.innerHTML = '<p class="no-comentarios">Error al cargar recomendaciones</p>';
         });
 }
+}
 
-function actualizarEstadisticas(totalEstrellas, totalRecomendaciones) {
+function actualizarEstadisticas(totalEstrellas, totalRecomendaciones, distribucion) {
     let promedio = 0;
     if (totalRecomendaciones > 0) {
         promedio = (totalEstrellas / totalRecomendaciones).toFixed(1);
@@ -1886,6 +1889,15 @@ function actualizarEstadisticas(totalEstrellas, totalRecomendaciones) {
     document.getElementById('promedio-estrellas').textContent = promedio;
     document.getElementById('total-calificaciones').textContent = totalRecomendaciones;
     document.getElementById('total-recomendaciones').textContent = totalRecomendaciones;
+    
+    // Actualizar barras de distribución
+    for (let i = 1; i <= 5; i++) {
+        const cantidad = distribucion[i] || 0;
+        const porcentaje = totalRecomendaciones > 0 ? (cantidad / totalRecomendaciones * 100) : 0;
+        
+        document.getElementById(`votos-${i}`).textContent = cantidad;
+        document.getElementById(`barra-${i}`).style.width = `${porcentaje}%`;
+    }
 }
 
 // Inicialización
