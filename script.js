@@ -1769,7 +1769,6 @@ function showRecomendaciones() {
     showScreen('recomendaciones-screen');
     cargarRecomendaciones();
 }
-}
 
 function calificar(estrellas) {
     calificacionActual = estrellas;
@@ -1876,7 +1875,6 @@ function cargarRecomendaciones() {
             console.error('Error al cargar recomendaciones:', error);
             listaComentarios.innerHTML = '<p class="no-comentarios">Error al cargar recomendaciones</p>';
         });
-}
 }
 
 function actualizarEstadisticas(totalEstrellas, totalRecomendaciones) {
