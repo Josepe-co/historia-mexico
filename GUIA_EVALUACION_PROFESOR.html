@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Evaluación - Historia de México Interactiva</title>
+    <style>
+        @page {
+            margin: 2cm;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            background: white;
+            color: #333;
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #4ECDC4;
+            padding-bottom: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            color: #2C3E50;
+            font-size: 2.5em;
+            margin: 0;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.2em;
+            margin: 10px 0 0 0;
+        }
+        
+        .section {
+            margin: 30px 0;
+            page-break-inside: avoid;
+        }
+        
+        h2 {
+            color: #4ECDC4;
+            border-left: 5px solid #4ECDC4;
+            padding-left: 15px;
+            margin-top: 40px;
+        }
+        
+        h3 {
+            color: #A28FDB;
+            margin-top: 25px;
+        }
+        
+        .info-box {
+            background: #f8f9fa;
+            border-left: 4px solid #FF6B6B;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .logro-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .logro-table th {
+            background: #4ECDC4;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .logro-table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .logro-table tr:hover {
+            background: #f5f5f5;
+        }
+        
+        .criterio {
+            background: #fff;
+            border: 2px solid #FFE66D;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        
+        .criterio h4 {
+            color: #FF9F43;
+            margin: 0 0 10px 0;
+        }
+        
+        ul {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .rubrica {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .rubrica th {
+            background: #A28FDB;
+            color: white;
+            padding: 12px;
+            text-align: center;
+        }
+        
+        .rubrica td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            vertical-align: top;
+        }
+        
+        .rubrica .nivel {
+            font-weight: 600;
+            background: #f8f9fa;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #4ECDC4;
+            text-align: center;
+            color: #666;
+        }
+        
+        .destacado {
+            background: #FFE66D;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+            }
+            
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📚 Guía de Evaluación para Docentes</h1>
+        <p>Historia de México Interactiva</p>
+        <p style="font-size: 0.9em; color: #999;">Desarrollado por Jose Carlos de Leon Salazar</p>
+    </div>
+
+    <div class="info-box">
+        <strong>🎯 Objetivo:</strong> Esta guía explica cómo utilizar el sistema de logros y seguimiento del programa educativo para evaluar el desempeño y participación de los estudiantes.
+    </div>
+
+    <div class="section">
+        <h2>1. Sistema de Logros Implementado</h2>
+        
+        <p>El programa cuenta con <span class="destacado">8 logros</span> que los estudiantes pueden desbloquear al interactuar con el contenido educativo. Cada logro representa un nivel de compromiso y aprendizaje específico.</p>
+
+        <h3>Logros Disponibles</h3>
+        
+        <table class="logro-table">
+            <thead>
+                <tr>
+                    <th>Logro</th>
+                    <th>Descripción</th>
+                    <th>Criterio de Desbloqueo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>🎓 Primer Paso</td>
+                    <td>Completaste tu primer parcial</td>
+                    <td>Visitar el primer periodo histórico</td>
+                </tr>
+                <tr>
+                    <td>🗺️ Explorador Histórico</td>
+                    <td>Visitaste los 3 parciales</td>
+                    <td>Explorar los 3 periodos (Independencia, Porfiriato, Revolución)</td>
+                </tr>
+                <tr>
+                    <td>📖 Estudiante Dedicado</td>
+                    <td>Escuchaste 3 historias completas</td>
+                    <td>Reproducir completamente 3 audios de personajes</td>
+                </tr>
+                <tr>
+                    <td>🎯 Maestro del Quiz</td>
+                    <td>Completaste el quiz con más de 80%</td>
+                    <td>Obtener más de 6 respuestas correctas de 8</td>
+                </tr>
+                <tr>
+                    <td>⚡ Experto en Trivia</td>
+                    <td>Dominaste la trivia histórica</td>
+                    <td>Responder correctamente 7 de 8 preguntas de trivia</td>
+                </tr>
+                <tr>
+                    <td>🗺️ Geógrafo Histórico</td>
+                    <td>Exploraste todos los puntos del mapa</td>
+                    <td>Hacer clic en los 4 puntos del mapa interactivo</td>
+                </tr>
+                <tr>
+                    <td>🏆 Completista</td>
+                    <td>Desbloqueaste todos los logros</td>
+                    <td>Desbloquear los otros 7 logros</td>
+                </tr>
+                <tr>
+                    <td>📚 Historiador Experto</td>
+                    <td>Escuchaste todas las historias</td>
+                    <td>Reproducir los 9 audios de personajes históricos</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>2. Cómo Usar los Logros para Evaluación</h2>
+
+        <div class="criterio">
+            <h4>📊 Participación (30%)</h4>
+            <ul>
+                <li><strong>Explorador Histórico:</strong> Demuestra que el alumno navegó por todo el contenido</li>
+                <li><strong>Geógrafo Histórico:</strong> Interacción con elementos multimedia</li>
+                <li><strong>Estudiante Dedicado:</strong> Consumo de contenido en audio</li>
+            </ul>
+        </div>
+
+        <div class="criterio">
+            <h4>🎯 Conocimiento (40%)</h4>
+            <ul>
+                <li><strong>Maestro del Quiz:</strong> Evaluación directa de conocimientos (requiere 80% de aciertos)</li>
+                <li><strong>Experto en Trivia:</strong> Comprensión de datos históricos específicos</li>
+            </ul>
+        </div>
+
+        <div class="criterio">
+            <h4>🏆 Compromiso Total (30%)</h4>
+            <ul>
+                <li><strong>Historiador Experto:</strong> Dedicación al escuchar todas las narraciones</li>
+                <li><strong>Completista:</strong> Máximo nivel de compromiso con el aprendizaje</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3. Rúbrica de Evaluación Sugerida</h2>
+        
+        <table class="rubrica">
+            <thead>
+                <tr>
+                    <th>Nivel</th>
+                    <th>Logros Desbloqueados</th>
+                    <th>Calificación</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="nivel">Excelente</td>
+                    <td>7-8 logros</td>
+                    <td>9.0 - 10</td>
+                    <td>Completó todas las actividades, demostró dominio del contenido y máximo compromiso</td>
+                </tr>
+                <tr>
+                    <td class="nivel">Muy Bien</td>
+                    <td>5-6 logros</td>
+                    <td>8.0 - 8.9</td>
+                    <td>Exploró ampliamente el contenido y obtuvo buenos resultados en evaluaciones</td>
+                </tr>
+                <tr>
+                    <td class="nivel">Bien</td>
+                    <td>3-4 logros</td>
+                    <td>7.0 - 7.9</td>
+                    <td>Navegó el contenido básico y completó algunas actividades evaluativas</td>
+                </tr>
+                <tr>
+                    <td class="nivel">Suficiente</td>
+                    <td>1-2 logros</td>
+                    <td>6.0 - 6.9</td>
+                    <td>Interacción mínima con el contenido</td>
+                </tr>
+                <tr>
+                    <td class="nivel">Insuficiente</td>
+                    <td>0 logros</td>
+                    <td>0 - 5.9</td>
+                    <td>No completó ninguna actividad significativa</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>4. Cómo Verificar los Logros de los Estudiantes</h2>
+        
+        <h3>Método 1: Captura de Pantalla</h3>
+        <p>Solicite a los estudiantes que:</p>
+        <ol>
+            <li>Accedan al programa: <strong>https://josepe-co.github.io/historia-mexico/</strong></li>
+            <li>Completen las actividades</li>
+            <li>Hagan clic en el botón <span class="destacado">🏆 Mis Logros</span></li>
+            <li>Tomen una captura de pantalla mostrando sus logros desbloqueados</li>
+            <li>Envíen la captura por la plataforma que usted utilice (Classroom, correo, etc.)</li>
+        </ol>
+
+        <h3>Método 2: Revisión en Clase</h3>
+        <p>Durante una sesión presencial o virtual:</p>
+        <ol>
+            <li>Pida a cada estudiante que abra el programa</li>
+            <li>Solicite que muestren su pantalla de logros</li>
+            <li>Verifique los logros desbloqueados en tiempo real</li>
+            <li>Registre la información en su lista</li>
+        </ol>
+
+        <div class="info-box">
+            <strong>⚠️ Nota Importante:</strong> Los logros se guardan en el navegador del estudiante (LocalStorage). Si cambian de dispositivo o navegador, perderán su progreso. Recomiende que usen siempre el mismo dispositivo/navegador o tomen capturas periódicas.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>5. Sistema de Recomendaciones</h2>
+        
+        <p>El programa también incluye un sistema de <span class="destacado">calificaciones y recomendaciones</span> que permite:</p>
+        
+        <ul>
+            <li><strong>Calificación con estrellas (1-5):</strong> Los estudiantes pueden calificar el programa</li>
+            <li><strong>Comentarios escritos:</strong> Pueden dejar recomendaciones sobre la experiencia</li>
+            <li><strong>Retroalimentación:</strong> Útil para evaluar la percepción del contenido educativo</li>
+        </ul>
+
+        <p>Esta información puede complementar la evaluación académica con una evaluación cualitativa del proceso de aprendizaje.</p>
+    </div>
+
+    <div class="section">
+        <h2>6. Métricas Adicionales Disponibles</h2>
+        
+        <p>En la pantalla de logros, los estudiantes pueden ver:</p>
+        
+        <ul>
+            <li>📚 <strong>Parciales Visitados:</strong> Número de periodos históricos explorados (máx. 3)</li>
+            <li>👥 <strong>Personajes Conocidos:</strong> Historias de personajes escuchadas (máx. 9)</li>
+            <li>🏆 <strong>Logros Desbloqueados:</strong> Total de logros obtenidos (máx. 8)</li>
+        </ul>
+
+        <p>Estas métricas proporcionan información cuantitativa sobre el nivel de interacción del estudiante con el material.</p>
+    </div>
+
+    <div class="section">
+        <h2>7. Recomendaciones Pedagógicas</h2>
+        
+        <h3>Para Maximizar el Aprendizaje:</h3>
+        <ul>
+            <li>Asigne el programa como tarea complementaria al contenido en clase</li>
+            <li>Establezca un plazo específico para completar los logros</li>
+            <li>Incentive a los estudiantes a desbloquear todos los logros</li>
+            <li>Use los resultados del quiz y trivia como diagnóstico de aprendizaje</li>
+            <li>Organice debates en clase sobre los personajes históricos presentados</li>
+        </ul>
+
+        <h3>Actividades Complementarias Sugeridas:</h3>
+        <ul>
+            <li>Solicitar un ensayo breve sobre uno de los personajes</li>
+            <li>Crear líneas de tiempo adicionales con los eventos aprendidos</li>
+            <li>Investigar más sobre los temas que más les interesaron</li>
+            <li>Comparar la información del programa con sus libros de texto</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>8. Soporte Técnico</h2>
+        
+        <p><strong>Si experimenta problemas técnicos:</strong></p>
+        <ul>
+            <li>Verifique que los estudiantes usen un navegador moderno (Chrome, Firefox, Edge)</li>
+            <li>Los videos y audios requieren conexión a internet</li>
+            <li>Los videos están optimizados para carga rápida (46 MB total)</li>
+            <li>El programa es responsive y funciona en móviles y tablets</li>
+        </ul>
+
+        <p><strong>Enlace del programa:</strong> <a href="https://josepe-co.github.io/historia-mexico/">https://josepe-co.github.io/historia-mexico/</a></p>
+    </div>
+
+    <div class="footer">
+        <p><strong>© 2025 Jose Carlos de Leon Salazar</strong></p>
+        <p>Programa Educativo Interactivo sobre la Historia de México</p>
+        <p style="font-size: 0.9em; color: #999;">Documento de Evaluación para Docentes</p>
+    </div>
+
+    <div class="no-print" style="text-align: center; margin: 40px 0; padding: 20px; background: #f0f0f0; border-radius: 10px;">
+        <p style="margin: 10px 0; font-size: 1.2em;"><strong>💡 Para convertir a PDF:</strong></p>
+        <p>Presione <kbd>Ctrl + P</kbd> (Windows) o <kbd>Cmd + P</kbd> (Mac)</p>
+        <p>Seleccione "Guardar como PDF" como destino</p>
+        <p>¡Y listo! Tendrá su guía en formato PDF</p>
+    </div>
+</body>
+</html>

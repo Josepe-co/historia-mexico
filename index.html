@@ -8,6 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 </head>
 <body>
     <!-- Pantalla de Inicio -->
@@ -360,6 +364,7 @@
 
             <div class="recomendacion-form">
                 <h3>Deja tu Recomendación</h3>
+                <input type="text" id="nombre-input" placeholder="Tu nombre (opcional)" style="width: 100%; padding: 12px; margin-bottom: 12px; border: 2px solid #e0e0e0; border-radius: 10px; font-family: 'Poppins', sans-serif; font-size: 16px;">
                 <textarea id="recomendacion-input" placeholder="Escribe aquí tu recomendación o comentario sobre este programa educativo..." rows="5"></textarea>
                 <button class="btn-primary" onclick="enviarRecomendacion()">Enviar Recomendación</button>
             </div>
@@ -397,6 +402,22 @@
         <p class="footer-subtitle">Programa educativo interactivo sobre la Historia de México</p>
     </footer>
 
+    <script>
+        // Configuración de Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyD88dF5jJ3PVdhrpQ3ziaTHTLEm_kTQmmQ",
+            authDomain: "historia-mexico.firebaseapp.com",
+            projectId: "historia-mexico",
+            storageBucket: "historia-mexico.firebasestorage.app",
+            messagingSenderId: "45708287104",
+            appId: "1:45708287104:web:10db86237d0f059270d",
+            measurementId: "G-TNSQBf9TFB"
+        };
+        
+        // Inicializar Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

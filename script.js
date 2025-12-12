@@ -1764,15 +1764,11 @@ function guardarStats() {
 
 // Sistema de Recomendaciones y Calificaciones
 let calificacionActual = 0;
-let recomendacionesData = JSON.parse(localStorage.getItem('recomendacionesHistoria')) || {
-    calificaciones: [],
-    comentarios: []
-};
 
 function showRecomendaciones() {
     showScreen('recomendaciones-screen');
     cargarRecomendaciones();
-    actualizarEstadisticas();
+}
 }
 
 function calificar(estrellas) {
@@ -1795,7 +1791,9 @@ function calificar(estrellas) {
 
 function enviarRecomendacion() {
     const textarea = document.getElementById('recomendacion-input');
+    const nombreInput = document.getElementById('nombre-input');
     const comentario = textarea.value.trim();
+    const nombre = nombreInput.value.trim() || 'Anónimo';
     
     if (calificacionActual === 0) {
         alert('Por favor, selecciona una calificación con las estrellas');
@@ -1807,76 +1805,88 @@ function enviarRecomendacion() {
         return;
     }
     
-    // Guardar calificación
-    recomendacionesData.calificaciones.push(calificacionActual);
-    
-    // Guardar comentario
-    const fecha = new Date();
-    recomendacionesData.comentarios.unshift({
+    // Guardar en Firestore
+    db.collection('recomendaciones').add({
         texto: comentario,
         estrellas: calificacionActual,
-        fecha: fecha.toLocaleDateString('es-MX'),
-        nombre: 'Estudiante'
+        nombre: nombre,
+        fecha: firebase.firestore.FieldValue.serverTimestamp()
+    })
+    .then(() => {
+        // Limpiar formulario
+        textarea.value = '';
+        nombreInput.value = '';
+        calificacionActual = 0;
+        document.querySelectorAll('.estrella').forEach(e => {
+            e.textContent = '☆';
+            e.classList.remove('activa');
+        });
+        document.getElementById('calificacion-texto').textContent = 'Haz clic en las estrellas para calificar';
+        
+        // Mostrar mensaje de éxito
+        alert('¡Gracias por tu recomendación! 💚');
+    })
+    .catch((error) => {
+        console.error('Error al enviar recomendación:', error);
+        alert('Hubo un error al enviar tu recomendación. Intenta de nuevo.');
     });
-    
-    // Guardar en localStorage
-    localStorage.setItem('recomendacionesHistoria', JSON.stringify(recomendacionesData));
-    
-    // Limpiar formulario
-    textarea.value = '';
-    calificacionActual = 0;
-    document.querySelectorAll('.estrella').forEach(e => {
-        e.textContent = '☆';
-        e.classList.remove('activa');
-    });
-    document.getElementById('calificacion-texto').textContent = 'Haz clic en las estrellas para calificar';
-    
-    // Actualizar vista
-    cargarRecomendaciones();
-    actualizarEstadisticas();
-    
-    // Mostrar mensaje de éxito
-    mostrarNotificacionLogro('¡Gracias por tu recomendación! 💚');
 }
 
 function cargarRecomendaciones() {
     const listaComentarios = document.getElementById('lista-comentarios');
     
-    if (recomendacionesData.comentarios.length === 0) {
-        listaComentarios.innerHTML = '<p class="no-comentarios">Aún no hay recomendaciones. ¡Sé el primero en dejar la tuya!</p>';
-        return;
-    }
-    
-    let html = '';
-    recomendacionesData.comentarios.forEach(comentario => {
-        const estrellasHTML = '★'.repeat(comentario.estrellas) + '☆'.repeat(5 - comentario.estrellas);
-        html += `
-            <div class="comentario-card">
-                <div class="comentario-header">
-                    <span class="comentario-nombre">${comentario.nombre}</span>
-                    <span class="comentario-fecha">${comentario.fecha}</span>
-                </div>
-                <div class="comentario-estrellas">${estrellasHTML}</div>
-                <p class="comentario-texto">${comentario.texto}</p>
-            </div>
-        `;
-    });
-    
-    listaComentarios.innerHTML = html;
+    // Escuchar cambios en tiempo real desde Firestore
+    db.collection('recomendaciones')
+        .orderBy('fecha', 'desc')
+        .limit(20)
+        .onSnapshot((snapshot) => {
+            if (snapshot.empty) {
+                listaComentarios.innerHTML = '<p class="no-comentarios">Aún no hay recomendaciones. ¡Sé el primero en dejar la tuya!</p>';
+                actualizarEstadisticas(0, 0);
+                return;
+            }
+            
+            let html = '';
+            let totalEstrellas = 0;
+            let contador = 0;
+            
+            snapshot.forEach((doc) => {
+                const comentario = doc.data();
+                const fecha = comentario.fecha ? comentario.fecha.toDate().toLocaleDateString('es-MX') : 'Reciente';
+                const estrellasHTML = '★'.repeat(comentario.estrellas) + '☆'.repeat(5 - comentario.estrellas);
+                
+                totalEstrellas += comentario.estrellas;
+                contador++;
+                
+                html += `
+                    <div class="comentario-card">
+                        <div class="comentario-header">
+                            <span class="comentario-nombre">${comentario.nombre}</span>
+                            <span class="comentario-fecha">${fecha}</span>
+                        </div>
+                        <div class="comentario-estrellas">${estrellasHTML}</div>
+                        <p class="comentario-texto">${comentario.texto}</p>
+                    </div>
+                `;
+            });
+            
+            listaComentarios.innerHTML = html;
+            actualizarEstadisticas(totalEstrellas, contador);
+        }, (error) => {
+            console.error('Error al cargar recomendaciones:', error);
+            listaComentarios.innerHTML = '<p class="no-comentarios">Error al cargar recomendaciones</p>';
+        });
+}
 }
 
-function actualizarEstadisticas() {
-    const totalCalificaciones = recomendacionesData.calificaciones.length;
-    const totalRecomendaciones = recomendacionesData.comentarios.length;
-    
+function actualizarEstadisticas(totalEstrellas, totalRecomendaciones) {
     let promedio = 0;
-    if (totalCalificaciones > 0) {
-        const suma = recomendacionesData.calificaciones.reduce((a, b) => a + b, 0);
-        promedio = (suma / totalCalificaciones).toFixed(1);
+    if (totalRecomendaciones > 0) {
+        promedio = (totalEstrellas / totalRecomendaciones).toFixed(1);
     }
     
     document.getElementById('promedio-estrellas').textContent = promedio;
-    document.getElementById('total-calificaciones').textContent = totalCalificaciones;
+    document.getElementById('total-calificaciones').textContent = totalRecomendaciones;
     document.getElementById('total-recomendaciones').textContent = totalRecomendaciones;
 }
 
