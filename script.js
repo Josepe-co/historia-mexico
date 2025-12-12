@@ -809,9 +809,21 @@ const logrosDisponibles = [
         desbloqueado: false
     },
     {
+        id: 'experto_trivia',
+        titulo: '⚡ Experto en Trivia',
+        descripcion: 'Respondiste 7 de 8 preguntas correctamente',
+        desbloqueado: false
+    },
+    {
         id: 'geografo',
         titulo: '🗺️ Geógrafo',
         descripcion: 'Visitaste todos los puntos del mapa',
+        desbloqueado: false
+    },
+    {
+        id: 'historiador',
+        titulo: '📖 Historiador Experto',
+        descripcion: 'Escuchaste todas las 9 historias',
         desbloqueado: false
     },
     {
@@ -1375,6 +1387,10 @@ function toggleAudio(audioId) {
             if (statsUsuario.personajesEscuchados >= 5) {
                 desbloquearLogro('estudiante');
             }
+            
+            if (statsUsuario.personajesEscuchados >= 9) {
+                desbloquearLogro('historiador');
+            }
         }
     } else {
         audio.pause();
@@ -1548,6 +1564,12 @@ function showTriviaResult() {
     const triviaContent = document.getElementById('trivia-content');
     const maxScore = triviaPreguntas.length * 10;
     const percentage = (triviaScore / maxScore) * 100;
+    const correctas = triviaScore / 10;
+    
+    // Desbloquear logro de trivia
+    if (correctas >= 7) {
+        desbloquearLogro('experto_trivia');
+    }
     
     let emoji = '🏆';
     let mensaje = '¡Excelente conocimiento histórico!';
